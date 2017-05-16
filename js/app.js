@@ -63,7 +63,7 @@ Player.prototype.checkCollisions = function() {
 Player.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
 };
-
+/*
 Player.prototype.canMoveLeft = function(){
   return this.x > 0 ;
 }
@@ -76,7 +76,7 @@ Player.prototype.canMoveUp = function(){
 Player.prototype.canMoveDown = function(){
   return this.y < 350 ;
 }
-
+*/
 Player.prototype.handleInput = function(movement) {
   switch(movement){
     case 'left': if(player.canMoveLeft()) this.x -= 101;break;
