@@ -39,7 +39,7 @@ var Player = function(x,y){
 };
 
 Player.prototype.update = function(){
-
+  console.log(this.x);
   if(this.y < 0) {
     alert("wins");
     this.x = 202;
@@ -67,7 +67,7 @@ Player.prototype.canMoveLeft = function(){
   return this.x > 0 ;
 }
 Player.prototype.canMoveRight = function(){
-  return this.x < 606 ;
+  return this.x < 402 ;
 }
 Player.prototype.canMoveUp = function(){
   return this.y > 52 ;
