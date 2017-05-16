@@ -43,13 +43,12 @@ Player.prototype.update = function(){
   if(this.y < 0) {
     alert("wins");
     this.x = 202;
-    this.y = 407;
+    this.y = 404;
   }
 
 };
-
+//在Player上实现碰撞检测
 Player.prototype.checkCollisions = function() {
-
   for(var i = 0; i < allEnemies.length; i++) {
     if(this.y === allEnemies[i].y) {
       if((Math.abs(this.x - allEnemies[i].x)) < 40) {
@@ -63,12 +62,12 @@ Player.prototype.checkCollisions = function() {
 Player.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
 };
-/*
+
 Player.prototype.canMoveLeft = function(){
   return this.x > 0 ;
 }
 Player.prototype.canMoveRight = function(){
-  return this.x < 404 ;
+  return this.x < 606 ;
 }
 Player.prototype.canMoveUp = function(){
   return this.y > 52 ;
@@ -76,7 +75,7 @@ Player.prototype.canMoveUp = function(){
 Player.prototype.canMoveDown = function(){
   return this.y < 350 ;
 }
-*/
+
 Player.prototype.handleInput = function(movement) {
   switch(movement){
     case 'left': if(player.canMoveLeft()) this.x -= 101;break;
@@ -96,7 +95,7 @@ var allEnemies = [
    new Enemy(22, 83 * 1 + 72, 50), new Enemy(21, 83 * 1 + 72, 23),
    new Enemy(22, 83 * 2 + 72, 50), new Enemy(21, 83 * 2 + 72, 23),
 ];
-
+//实例化player
 var player = new Player(200, 404);
 
 // 这段代码监听游戏玩家的键盘点击事件并且代表将按键的关键数字送到 Play.handleInput()
