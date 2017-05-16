@@ -68,7 +68,7 @@ Player.prototype.canMoveLeft = function(){
   return this.x > 0 ;
 }
 Player.prototype.canMoveRight = function(){
-  return this.x < 404 ;
+  return this.x < 402 ;
 }
 Player.prototype.canMoveUp = function(){
   return this.y > 52 ;
