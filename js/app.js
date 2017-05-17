@@ -6,7 +6,7 @@ var Enemy = function(x,y,speed) {
     // 虫子要以不同的速度移动,所以需要添加一个speed属性
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = Math.floor(Math.random()*100);
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -37,13 +37,14 @@ var Player = function(x,y){
   this.y = y;
   this.sprite = 'images/char-boy.png';
 };
+var PLAYER_START_X = 404
 
 Player.prototype.update = function(){
 
   if(this.y < 0) {
     alert("wins");
-    this.x = 202;
-    this.y = 407;
+    this.x = 200;
+    this.y = 404;
   }
 
 };
@@ -52,7 +53,7 @@ Player.prototype.checkCollisions = function() {
 
   for(var i = 0; i < allEnemies.length; i++) {
     if(this.y === allEnemies[i].y) {
-      if((Math.abs(this.x - allEnemies[i].x)) < 40) {
+      if((Math.abs(this.x - allEnemies[i].x)) < 65) {
         this.x = 200;
         this.y = 404;
       }
@@ -92,9 +93,9 @@ Player.prototype.handleInput = function(movement) {
 
 
 var allEnemies = [
-   new Enemy(22, 83 * 0 + 72, 50), new Enemy(21, 83 * 0 + 72, 23),
-   new Enemy(22, 83 * 1 + 72, 50), new Enemy(21, 83 * 1 + 72, 23),
-   new Enemy(22, 83 * 2 + 72, 50), new Enemy(21, 83 * 2 + 72, 23),
+   new Enemy(22, 83 * 0 + 72), new Enemy(21, 83 * 0 + 72),
+   new Enemy(22, 83 * 1 + 72), new Enemy(21, 83 * 1 + 72),
+   new Enemy(22, 83 * 2 + 72), new Enemy(21, 83 * 2 + 72),
 ];
 
 var player = new Player(200, 404);
